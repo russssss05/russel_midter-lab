@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Russel Rhwein Delrosario | Portfolio</title>
+  <style>
+    :root {
+      --primary: #2e2e2e;
+      --accent: #6c63ff;
+      --bg: #f4f4f8;
+      --white: #ffffff;
+      --gray: #666;
+      --soft-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--primary);
+      height: 100%;
+    }
+
+    header {
+      background-color: var(--white);
+      padding: 2rem 1rem;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--soft-shadow);
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 500;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      display: none;
+      padding: 4rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      animation: fadeIn 0.4s ease;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .about img {
+      margin: 2rem auto;
+      width: 170px;
+      border-radius: 50%;
+      box-shadow: var(--soft-shadow);
+    }
+
+    .btn-home {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.7rem 1.5rem;
+      background-color: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .btn-home:hover {
+      background-color: #554edb;
+    }
+
+    /* Project Section Styling */
+    #projects {
+      background-color: #f0f0ff;
+      border-radius: 12px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .project {
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: var(--soft-shadow);
+      text-align: left;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .project h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .project p {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    .project::before {
+      content: '💡';
+      font-size: 1.5rem;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+
+    .project:nth-child(2)::before {
+      content: '🎨';
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: var(--white);
+      font-size: 0.9rem;
+      color: var(--gray);
+      border-top: 1px solid #ddd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      section {
+        padding: 3rem 1rem;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header + Navigation -->
+  <header>
+    <h1>Russel Rhwein Delrosario</h1>
+    <nav>
+      <a onclick="showPage('home')">Home</a>
+      <a onclick="showPage('about')">About Me</a>
+      <a onclick="showPage('projects')">Projects</a>
+      <a onclick="showPage('contact')">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="active">
+    <h2>Welcome</h2>
+    <p>Hello! I'm Russel — an 18-year-old BSIT student at OLFU, passionate about technology, biking, and creative design.</p>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="russssss.jpg" alt="Russel's Photo" style="width: 100px; border-radius: 50%; box-shadow: 0 6px 20px rgba(0,0,0,0.06); display: block; margin: 2rem auto;" />
+    <p>I'm Russel Rhwein Delrosario. I enjoy mobile games, exploring nature on my bike, and watching sunsets. I'm studying BSIT at OLFU and always curious about new tech and creative projects.</p>
+    <a class="btn-home" onclick="showPage('home')">← Back to Home</a>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="project-grid">
+      <div class="project">
+        <h3>Personal Portfolio Website</h3>
+        <p>This website was built using HTML, CSS, and JavaScript to showcase my skills in a clean and simple way.</p>
+      </div>
+      <div class="project">
+        <h3>Graphic Design Projects</h3>
+        <p>Designed posters and school visuals using Canva, focused on readability and visual storytelling.</p>
+      </div>
+    </div>
+    <a class="btn-home" onclick="showPage('home')">← Back to Home</a>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:russelrhweindelrosario5@gmail.com">russelrhweindelrosario5@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/russssss05" target="_blank">@russssss05 </a></p>
+    <a class="btn-home" onclick="showPage('home')">← Back to Home</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Russel Rhwein Delrosario. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for page switching -->
+  <script>
+    function showPage(pageId) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+      window.scrollTo(0, 0);
+    }
+  </script>
+
+</body>
+</html>
